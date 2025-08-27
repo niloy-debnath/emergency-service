@@ -24,15 +24,21 @@ for (let callButton of callButtons) {
     let number =
       callButton.parentNode.parentNode.childNodes[5].childNodes[1].innerText;
     // console.log(number);
+    let totalCoinElement = document.getElementById("total-coin");
+    let totalCoin = parseInt(totalCoinElement.innerText);
+    if (totalCoin < 20) {
+      alert("You don't have sufficient coins");
+      return;
+    }
+
+    // console.log(totalCoin);
+    let currentCoin = totalCoin - 20;
+
+    totalCoinElement.innerText = currentCoin;
     alert("You clicked " + cardTitle + " and calling on " + number);
 
     // coin count
 
-    let totalCoinElement = document.getElementById("total-coin");
-    let totalCoin = parseInt(totalCoinElement.innerText);
-    // console.log(totalCoin);
-    let currentCoin = totalCoin - 20;
-    totalCoinElement.innerText = currentCoin;
     console.log(currentCoin);
   });
 }
