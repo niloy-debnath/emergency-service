@@ -79,3 +79,37 @@ clearButton.addEventListener("click", function () {
   let historyCardContainer = document.getElementById("history-card-container");
   historyCardContainer.innerHTML = "";
 });
+
+// ============ Copy Button ===================
+
+const copyButtons = document.getElementsByClassName("copy-buttons");
+
+for (let copyButton of copyButtons) {
+  copyButton.addEventListener("click", function () {
+    let hotlineNumber =
+      copyButton.parentNode.parentNode.childNodes[5].childNodes[1].innerText;
+    console.log(hotlineNumber);
+
+    let copyCountString = document.getElementById("copy-count");
+    let copyCount = parseInt(copyCountString.innerText);
+    console.log(copyCount);
+    copyCount++;
+    copyCountString.innerText = copyCount;
+
+    navigator.clipboard
+      .writeText(hotlineNumber)
+      .then(() => {
+        alert("Copied: " + hotlineNumber);
+      })
+      .catch((err) => {
+        console.error("Failed to copy: ", err);
+        const textArea = document.createElement("textarea");
+        textArea.value = hotlineNumber;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textArea);
+        alert("Copied (fallback): " + hotlineNumber);
+      });
+  });
+}
