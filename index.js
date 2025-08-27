@@ -44,7 +44,14 @@ for (let callButton of callButtons) {
     let historyCardContainer = document.getElementById(
       "history-card-container"
     );
-    // console.log(historyCardContainer);
+
+    const now = new Date();
+    const timeString = now.toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: true,
+    });
 
     const newCallHistory = document.createElement("div");
 
@@ -57,7 +64,7 @@ for (let callButton of callButtons) {
               <h2 class="text-[#5C5C5C] hind-madurai-regular">${number}</h2>
             </div>
             <div>
-              <h1>Time</h1>
+              <h1>${timeString}</h1>
             </div>
           </div>
     `;
