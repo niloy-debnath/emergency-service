@@ -39,7 +39,7 @@ for (let callButton of callButtons) {
     let currentCoin = totalCoin - 20;
 
     totalCoinElement.innerText = currentCoin;
-    alert("Calling " + cardTitle + " " + number + " you have " + totalCoin);
+    alert("📞 Calling " + cardTitle + "(" + number + ") ");
 
     let historyCardContainer = document.getElementById(
       "history-card-container"
