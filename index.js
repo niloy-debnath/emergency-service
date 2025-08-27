@@ -44,7 +44,7 @@ for (let callButton of callButtons) {
     let historyCardContainer = document.getElementById(
       "history-card-container"
     );
-    console.log(historyCardContainer);
+    // console.log(historyCardContainer);
 
     const newCallHistory = document.createElement("div");
 
